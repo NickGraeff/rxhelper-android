@@ -1,0 +1,27 @@
+<resources>
+    <!--Top level of app?-->
+    <string name="app_name">RxHelper</string>
+
+    <!--First Activity of the App-->
+    <string name="login_button">Login</string>
+    <string name="signup_button">Sign Up</string>
+
+    <!--Signup Activity of the App-->
+    <string name="name_signup_textfield">Name</string>
+    <string name="email_signup_textfield">Email</string>
+    <string name="pharmacy_name_signup_textfield">Pharmacy Name</string>
+    <string name="pharmacy_phone_number_signup_textfield">Pharmacy Phone Number</string>
+    <string name="password_signup_textfield">Password</string>
+    <string name="password_reenter_signup_textfield">Re-Enter Password</string>
+    <string name="confirm_signup_details_button">Confirm Sign-Up</string>
+
+    <!--Login Activity of the App-->
+    <string name="email_login_textfield">Email</string>
+    <string name="password_login_textfield">Password</string>
+    <string name="confirm_login_button">Confirm Login</string>
+
+    <!--ToS Activity of the App-->
+    <string name="tos_details_textview">Insert long-winded ToS here</string>
+    <string name="accept_tos_button">Accept</string>
+    <string name="deny_tos_button">Deny</string>
+</resources>
