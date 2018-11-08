@@ -25,7 +25,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         // Set the textView to welcome the user
         TextView textView = (TextView) findViewById(R.id.textView2);
-        textView.setText("Welcome guy");
+        textView.setText("Welcome " + MainUser.getMainUser().getPrimaryUser().name);
 
         // Begin the delay process
         myHandler = new Handler();
