@@ -16,8 +16,11 @@ public class MainUser {
     private static MainUser MainUserInstance = null;
 
     private Member primaryUser; // This is a reference to the first user of subUsers
+    public Member currentUser; // This is a reference to the user who's prescriptions are being accessed
     public Vector<Member> subUsers; // This holds the primaryUser and all subUsers of that user
-    public FirebaseUser fbUserAccount; // Holds a reference to the user's Firebase account
+    public FirebaseUser fbUserAccount; // Holds a reference to the user's FireBase account
+    public String pharmacyName; // Holds the primaryUser's pharmacyName, entered at sign-up
+    public String pharmacyPhoneNumber; // Holds the primaryUser's pharmacyPhoneNUmber, entered at sign-up
 
     private MainUser() {
 
@@ -31,12 +34,8 @@ public class MainUser {
         subUsers = new Vector<Member>();
         subUsers.add(new MemberBuilder().build());
         primaryUser = subUsers.elementAt(0);
+        currentUser = primaryUser;
         fbUserAccount = null;
-    }
-
-    public void setPrimaryUser(Member member) {
-        subUsers.setElementAt(member, 0);
-        primaryUser = subUsers.elementAt(0);
     }
 
     public Member getPrimaryUser() {

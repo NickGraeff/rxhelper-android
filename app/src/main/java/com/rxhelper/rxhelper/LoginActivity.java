@@ -43,37 +43,13 @@ public class LoginActivity extends AppCompatActivity {
 
                             // Set reference to mainUser's Firebase account
                             mainUser.fbUserAccount = mAuth.getCurrentUser();
+                            mainUser.getPrimaryUser().dbKey = mAuth.getUid();
 
-                            // Get a reference to Firebase's database and set some values
-                            final DatabaseReference fireDBUserRef = FirebaseDatabase.getInstance().getReference().child("/users/" + mAuth.getUid() + "/members/" + mAuth.getUid());
-                            fireDBUserRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    String name = (String) dataSnapshot.child("name").getValue();
-                                    String pharmacyName = (String) dataSnapshot.child("pharmacyName").getValue();
-                                    String pharmacyPhoneNumber = (String) dataSnapshot.child("pharmacyPhoneNumber").getValue();
-                                    String key = mAuth.getUid();
 
-                                    // Create a member with the information for the primaryUser
-                                    Member member = new MemberBuilder()
-                                            .setName(name)
-                                            .setKey(key)
-                                            .setPharmacyName(pharmacyName)
-                                            .setPharmacyPhoneNumber(pharmacyPhoneNumber)
-                                            .build();
-                                    mainUser.setPrimaryUser(member);
-
-                                    // Go to the welcome screen
-                                    Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(intent);
-                                }
-
-                                @Override
-                                public void onCancelled(DatabaseError firebaseError) {
-                                    System.out.println(firebaseError.toString());
-                                }
-                            });
+                            // Go to the welcome screen
+                            Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
 
                         } else {
                             // If sign in fails, display a message to the user.

@@ -16,18 +16,6 @@ public class MemberBuilder {
         return this;
     }
 
-
-    public MemberBuilder setPharmacyName(String pharmacyName) {
-        this.pharmacyName = pharmacyName;
-        return this;
-    }
-
-
-    public MemberBuilder setPharmacyPhoneNumber(String pharmacyPhoneNumber) {
-        this.pharmacyPhoneNumber = pharmacyPhoneNumber;
-        return this;
-    }
-
     public Member build() {
         return new Member(name, dbKey, pharmacyName, pharmacyPhoneNumber);
     }

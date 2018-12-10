@@ -24,4 +24,9 @@
     <string name="tos_details_textview">Insert long-winded ToS here</string>
     <string name="accept_tos_button">Accept</string>
     <string name="deny_tos_button">Deny</string>
+
+    <!--PrescriptionEditor Activity of the App-->
+    <string name="prescriptionNameFieldHint">Name</string>
+    <string name="prescriptionDosageFieldHint">Dosage</string>
+    <string name="prescriptionRemainingDosesFieldHint">Remaining Doses</string>
 </resources>

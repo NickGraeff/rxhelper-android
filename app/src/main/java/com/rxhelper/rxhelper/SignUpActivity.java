@@ -53,21 +53,15 @@ public class SignUpActivity extends AppCompatActivity {
                             .build());
 
                     // Get a reference to Firebase's database and set some values
-                    DatabaseReference fireDBUserRef = FirebaseDatabase.getInstance().getReference().child("/users/" + mAuth.getUid() + "/members/" + mAuth.getUid());
+                    DatabaseReference fireDBUserRef = FirebaseDatabase.getInstance().getReference()
+                            .child("/users/" + mAuth.getUid() + "/members/" + mAuth.getUid());
                     HashMap<String, Object> map = new HashMap<>();
-                    map.put("name", name);
                     map.put("pharmacyName", pharmacyName);
                     map.put("pharmacyPhoneNumber", pharmacyPhoneNumber);
                     fireDBUserRef.setValue(map);
 
-                    // Create a member with the information for the primaryUser
-                    Member member = new MemberBuilder()
-                            .setName(name)
-                            .setKey(mAuth.getUid())
-                            .setPharmacyName(pharmacyName)
-                            .setPharmacyPhoneNumber(pharmacyPhoneNumber)
-                            .build();
-                    mainUser.setPrimaryUser(member);
+                    // Set the primaryUser's information
+                    mainUser.getPrimaryUser().dbKey = mAuth.getUid();
 
                     // Go to ToS screen
                     Intent intent = new Intent(SignUpActivity.this, ToSActivity.class);
